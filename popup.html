@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: 'Google Sans', Roboto, Arial, sans-serif;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h1 {
+      font-size: 18px;
+      margin: 0 0 8px 0;
+      color: #1a73e8;
+    }
+    
+    .header p {
+      font-size: 14px;
+      color: #5f6368;
+      margin: 0;
+    }
+    
+    .status {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .status-active {
+      background: #e8f5e8;
+      color: #2e7d32;
+    }
+    
+    .status-inactive {
+      background: #fff3e0;
+      color: #f57c00;
+    }
+    
+    .info {
+      font-size: 12px;
+      color: #5f6368;
+      line-height: 1.4;
+      text-align: center;
+    }
+    
+    .version {
+      text-align: center;
+      font-size: 10px;
+      color: #9aa0a6;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #e8eaed;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎥 Meet録画チェッカー</h1>
+    <p>録画忘れを防止します</p>
+  </div>
+  
+  <div class="status" id="recording-status">
+    <div>📍 Google Meetページで確認中...</div>
+  </div>
+  
+  <div class="info">
+    このChrome拡張は、Google Meetでミーティングが30秒以上続いている際に録画されていない場合、自動的に警告を表示します。
+  </div>
+  
+  <div class="version">
+    Version 1.0
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

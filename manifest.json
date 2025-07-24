@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Google Meet録画忘れ防止",
+  "version": "1.0",
+  "description": "Google Meetで録画忘れを防止するChrome拡張",
+  "permissions": [
+    "notifications",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Meet録画チェッカー"
+  }
+}

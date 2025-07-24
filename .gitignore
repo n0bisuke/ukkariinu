@@ -1,0 +1,64 @@
+# Chrome拡張機能開発用 .gitignore
+
+# OS固有ファイル
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# エディタ・IDE関連
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node.js関連（将来的にビルドツールを使用する場合）
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# 一時ファイル
+*.tmp
+*.temp
+*.log
+
+# Chrome拡張機能関連
+# パッケージ化されたファイル
+*.crx
+*.pem
+*.zip
+
+# 開発用一時ファイル
+dist/
+build/
+
+# テスト関連
+coverage/
+.nyc_output/
+
+# 環境設定
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Claudeの作業ディレクトリ
+.claude/
+
+# アイコン生成用の一時ファイル
+icons/temp/
+*.psd
+*.ai
+*.sketch
+
+# スクリーンショット（開発用）
+screenshots/dev/
+*.png.bak
