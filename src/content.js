@@ -15,11 +15,27 @@ function checkRecordingStatus() {
                           document.querySelector('[aria-label*="録画を停止"]') ||
                           document.querySelector('[aria-label*="Stop recording"]');
 
-  const newIsRecording = !!stopRecordButton;
+  // 他の人が録画中の場合を検出（録画中のテキストや表示を探す）
+  const recordingText = Array.from(document.querySelectorAll('*')).find(el => 
+    el.textContent && 
+    (el.textContent.includes('録画中') || 
+     el.textContent.includes('Recording') ||
+     el.textContent.includes('REC') ||
+     el.textContent.match(/録画が.*開始/))
+  );
+
+  // 録画アイコンや視覚的インジケーターを探す
+  const recordingIcon = document.querySelector('[data-is-recording="true"]') ||
+                       document.querySelector('.recording-indicator') ||
+                       document.querySelector('[aria-label*="録画が開始"]');
+
+  const newIsRecording = !!stopRecordButton || !!recordingText || !!recordingIcon;
   
   console.log('Meet Recorder Checker: Checking recording status', {
     recordButton: !!recordButton,
     stopRecordButton: !!stopRecordButton,
+    recordingText: !!recordingText,
+    recordingIcon: !!recordingIcon,
     isRecording: newIsRecording,
     meetingStartTime: meetingStartTime,
     hasShownWarning: hasShownWarning

@@ -74,6 +74,16 @@ meet-rec-checker/
 
 ## Chrome Web Store リリース準備
 
+### Chrome Web Store 審査履歴
+
+#### v1.0 → v1.1 (2025/07/27)
+**リジェクト理由**: 未使用権限 (`notifications`パーミッション)
+**対応**: 
+- `notifications`権限を削除
+- `activeTab`を`host_permissions`に変更
+- プライバシーポリシー更新
+- バージョン1.1で再提出
+
 ### 必要な修正項目
 1. **TypeScriptエラー修正**:
    - `webkitAudioContext`の型エラー
@@ -81,10 +91,9 @@ meet-rec-checker/
 
 2. **アイコン作成**: 16px, 48px, 128px のアイコンファイル
 
-3. **権限説明**:
-   - `notifications`: 録画忘れ警告の表示用
-   - `activeTab`: Google Meetタブの状態監視用
-   - `host_permissions`: meet.google.com/* でのみ動作
+3. **最小権限化 (v1.1で完了)**:
+   - `permissions: []` (空配列)
+   - `host_permissions: ["https://meet.google.com/*"]` のみ
 
 ### ストア掲載情報
 - **カテゴリ**: 仕事効率化（Productivity）
@@ -96,6 +105,25 @@ meet-rec-checker/
 2. **多言語対応**: 英語版の追加
 3. **統計機能**: 録画忘れ回数の記録
 4. **音声設定**: 警告音のON/OFF切り替え
+
+## Chrome Web Store パッケージ作成手順
+
+### ZIPファイル作成
+```bash
+# srcフォルダに移動
+cd src
+
+# ZIPファイルを作成（ルートフォルダを含めずに圧縮）
+zip -r ../meet-recording-reminder-v1.1.zip . -x "*.DS_Store" "*.git*"
+```
+
+### パッケージに含まれるファイル
+- `manifest.json` - 拡張機能の設定
+- `content.js` - メインスクリプト
+- `popup.html` - ポップアップのHTML
+- `popup.js` - ポップアップの機能
+- `styles.css` - スタイルシート
+- `icons/` - アイコンフォルダ（現在空）
 
 ## デバッグ用コマンド
 ```javascript

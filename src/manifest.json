@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Google Meet録画忘れ防止",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Google Meetで録画忘れを防止するChrome拡張",
   "privacy_policy": "https://n0bisuke.github.io/ukkariinu/privacy-policy.html",
-  "permissions": [
-    "notifications",
-    "activeTab"
+  "permissions": [],
+  "host_permissions": [
+    "https://meet.google.com/*"
   ],
   "content_scripts": [
     {
